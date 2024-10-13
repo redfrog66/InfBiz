@@ -55,3 +55,16 @@ print("Generált titokrészek:", részek)
 k_rész = részek[:k]  # Az első k részt használjuk a visszaállításhoz
 visszaállított_titok = lagrange_interpoláció(k_rész, prime)
 print("Visszaállított titok:", visszaállított_titok)
+
+# Egyéb magyarázat:
+# 1. Polinom generálása:
+# - A titok az állandó tag (a polinom első együtthatója), a többi véletlenszerűen generált együttható.
+# - Ez lesz a polinom, amely alapján a titokrészeket generáljuk.
+# 2. Titokrészek generálása:
+# - A résztvevők mind kapnak egy-egy titokrészt, ami egy 𝑥 értékhez tartozó 𝑃(x) pont.
+# - Ezeket a pontokat később fel lehet használni a polinom rekonstruálására, és ezáltal a titok visszanyerésére.
+# 3. Lagrange interpoláció:
+# - Ez a rész a polinom rekonstruálásáért felel. Legalább k számú részből vissza lehet nyerni az eredeti titkot.
+# - A Lagrange-interpolációs módszerrel egy polinomot illesztünk a megadott pontokra.
+# 4. Moduláris inverz:
+# - A pow(xj - xi, -1, prime) kifejezés segítségével számítjuk az inverz műveletet egy moduláris mezőben, ami kulcsfontosságú a helyes számításokhoz.
